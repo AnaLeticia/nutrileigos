@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@ page import="java.lang.*,java.io.*,java.util.*,java.math.*,java.text.*"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -68,7 +73,7 @@
 					</div>
 					<div class="panel-body">
 						<!-- <form name="imcForm" action="imc.jsp" method="POST">-->
-						<form name="imcForm" action="calculo-imc2.html" method="POST" >
+						<form name="imcForm" >
 							<div class="form-group">
 								<input type="text" class="form-control"
 									placeholder="Digite o seu peso (em kg)" name="peso" required>
@@ -101,7 +106,51 @@
 								<div class="wrapper text-center">
 									
 									<br></br>
-									
+									<%
+										// Obtem o peso do parametro da requisicao (la do formulario)
+										String peso = request.getParameter("peso");
+										
+										// Faco o mesmo com a altura...tambem do parametro da requisicao (la do formulario)
+										String altura = request.getParameter("altura");
+										
+										if (peso != null) {
+											// Injeto esse trecho de HTML na pagina, com o peso e a altura...
+											out.println("<b>Sua massa &eacute; de " + peso + " kg e sua altura &eacute; de " + altura + " m.</b><br/></br>");
+											
+											Double imc = Double.parseDouble(peso) / Math.pow(Double.parseDouble(altura), 2);
+											
+											DecimalFormat df = new DecimalFormat("#.##");
+
+											// StringBuilder: classe do Java para concatenar Strings (metodo append)
+											StringBuilder sb = new StringBuilder();
+											
+											// Injeto esse trecho de HTML na pagina, com o IMC ja calculado...
+											sb.append("<br> Seu IMC &eacute; de <h4>" + df.format(imc) + "</h4>");
+											
+											
+											// if-else com os valores possiveis de IMC. Pra cada faixa de valor, eu gero uma mensagem diferente
+											if (imc < 17) {
+												// muito abaixo do peso
+											} else if (imc >= 17 && imc <= 18.49) {
+												// abaixo do peso
+											} else if (imc >= 18.5 && imc <= 24.99) {
+												sb.append("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">");
+												sb.append("<h3>Parab&eacute;ns!</h3><br> Voc&ecirc; est&aacute; com o <b>peso ideal</b> ;) <br>");
+												sb.append(".</div>");
+											} else if (imc >= 25 && imc <= 29.99) {
+												// acima do peso
+											} else if (imc >= 30 && imc <= 34.99) {
+												// obesidade 1
+											} else if (imc >= 35 && imc <= 39.99) {
+												// obesidade 2 severa
+											} else if (imc >= 40) {
+												// obesidade 3 morbida
+											}
+											
+											// Injeto o conteudo da minha StringBuilder com o alerta criado durante o if-else...
+											out.println(sb.toString());
+										}
+									%>
 								</div>
 							</div>
 						</form>
