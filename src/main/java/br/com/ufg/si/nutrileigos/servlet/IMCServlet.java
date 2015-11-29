@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class IMCServlet
  */
-@WebServlet("/calculo-imc2.html")
+@WebServlet("/CalculoIMC")
 public class IMCServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -73,7 +73,7 @@
 					</div>
 					<div class="panel-body">
 						<!-- <form name="imcForm" action="imc.jsp" method="POST">-->
-						<form name="imcForm" >
+						<form name="imcForm" action="CalculoIMC">
 							<div class="form-group">
 								<input type="text" class="form-control"
 									placeholder="Digite o seu peso (em kg)" name="peso" required>
