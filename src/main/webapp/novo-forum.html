@@ -2,13 +2,69 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Novo post</title>
+<link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap.min.css" />
+
 </head>
 <body>
+	<div class="container">
+		<br>
+		<div class="row wrapper text-right">Bem vindo, Ana Letícia</div>
 
-	<form>
-		<!-- nome e assunto -->
-	
-	</form>
+		<div class="row wrapper text-center">
+			<div class="col-md-2"></div>
+
+
+			<div class="col-md-8">
+				<div class="panel panel-primary">
+					<div class="panel-heading text-center">
+						<h4>Novo post</h4>
+					</div>
+					<div class="panel-body">
+						<form name="novoPostForm" action="forum.html" method="POST">
+							<!-- 						<form name="imcForm" action="calculo-imc2.html" method="POST" > -->
+
+							<!-- Autor -->
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Autor"
+									name="autor" required>
+							</div>
+
+							<!-- titulo -->
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Titulo"
+									name="titulo" required>
+							</div>
+
+							<!-- conteudo -->
+							<div class="form-group">
+								<textarea class="form-control" placeholder="Conteúdo"
+									name="conteudo" rows="10" cols="100" required></textarea>
+							</div>
+
+							<br> <br> <input type="submit" class="btn btn-success"
+								value="Postar"> <br> <br>
+						</form>
+					</div>
+
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+
+			<!-- Rodape da pagina -->
+			<footer>
+				<div class="container">
+					<div class="row wrapper text-center">
+						<div class="col-md-12 ">
+
+							<div class="well well-sm">
+								Nutrileigos - 2015 <br> Desenvolvido por: <a
+									href="https://github.com/AnaLeticia" target="_blank">Ana
+									Letícia</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
 </body>
 </html>
