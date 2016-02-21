@@ -3,17 +3,17 @@ package br.com.ufg.si.nutrileigos.model.factory;
 import br.com.ufg.si.nutrileigos.model.Comentario;
 
 /**
- * Fábrica de Comentario.
+ * Fabrica de Comentario.
  *
  * @author Ana Leticia
  */
 public class ComentarioFactory {
 
     /**
-     * Clona um Comentário.
+     * Clona um Comentario.
      *
-     * @param comentarioOriginal o comentário original que será clonado.
-     * @return o comentário clone.
+     * @param comentarioOriginal o comentario original que sera clonado.
+     * @return o comentario clone.
      */
     public static Comentario clone(Comentario comentarioOriginal) {
         if (comentarioOriginal != null) {

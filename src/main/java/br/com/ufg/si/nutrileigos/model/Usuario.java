@@ -1,7 +1,7 @@
 package br.com.ufg.si.nutrileigos.model;
 
 /**
- * Document-me!
+ * Temos os contrutores e os getters e setters
  *
  * @author Ana Leticia
  */

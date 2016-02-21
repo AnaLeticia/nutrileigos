@@ -3,7 +3,7 @@ package br.com.ufg.si.nutrileigos.model.factory;
 import br.com.ufg.si.nutrileigos.model.Post;
 
 /**
- * Fábrica de instâncias de Usuario.
+ * Fabrica de instancias de post.
  *
  * @author Ana Leticia
  */
@@ -12,7 +12,7 @@ public class PostFactory {
     /**
      * Clona um post.
      *
-     * @param postOriginal o post original que será clonado
+     * @param postOriginal o post original que sera clonado
      * @return o post clone.
      */
     public static Post clone(Post postOriginal) {

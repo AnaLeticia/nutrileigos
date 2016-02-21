@@ -13,6 +13,8 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -25,6 +27,7 @@ import java.util.Enumeration;
  * @author Ana Leticia
  *
  */
+@WebListener
 public class StartupServletListener implements ServletContextListener {
 	
 	private static final Logger LOG = Logger.getLogger(StartupServletListener.class);
@@ -34,37 +37,38 @@ public class StartupServletListener implements ServletContextListener {
 	private ComentarioDao comentarioDao;
 
 	public void contextInitialized(ServletContextEvent arg0) {
-		try {
-			Usuario admin = new Usuario();
-			admin.setNome("Administrador");
-			admin.setLogin("admin");
-			admin.setSenha("admin");
-			admin.setEmail("analeh1@gmail.com");
-
-			usuarioDao = new UsuarioDaoJdbcImpl();
-			admin = usuarioDao.persist(admin);
-
-			Post post = new Post();
-			post.setTitulo("Meu post");
-			post.setAutor(admin);
-			post.setData(new Date());
-			post.setConteudo("O conteudo do meu post...");
-
-			postDao = new PostDaoJdbcImpl();
-			post = postDao.persist(post);
-
-			Comentario comentario = new Comentario();
-
-			comentario.setPost(post);
-			comentario.setConteudo("o conteudo do meu comentario");
-			comentario.setData(new Date());
-			comentario.setAutor(admin);
-
-			comentarioDao = new ComentarioDaoJdbcImpl();
-			comentario = comentarioDao.persist(comentario);
-		} catch (Exception e) {
-			LOG.error(e);
-		}
+//		try {
+//			Usuario admin = new Usuario();
+//			admin.setNome("Administrador");
+//			admin.setLogin("admin");
+//			admin.setSenha("admin");
+//			admin.setEmail("analeh1@gmail.com");
+//
+//			usuarioDao = new UsuarioDaoJdbcImpl();
+//			admin = usuarioDao.persist(admin);
+//
+//			Post post = new Post();
+//			post.setTitulo("Meu post");
+//			post.setAutor(admin);
+//			post.setData(new Date());
+//			post.setConteudo("O conteudo do meu post...");
+//
+//			postDao = new PostDaoJdbcImpl();
+//			post = postDao.persist(post);
+//
+//			Comentario comentario = new Comentario();
+//
+//			comentario.setPost(post);
+//			comentario.setConteudo("o conteudo do meu comentario");
+//			comentario.setData(new Date());
+//			comentario.setAutor(admin);
+//
+//			comentarioDao = new ComentarioDaoJdbcImpl();
+//			comentario = comentarioDao.persist(comentario);
+//		} catch (Exception e) {
+//			LOG.error(e);
+//			throw new RuntimeException(e);
+//		}
 	}
 
 	public void contextDestroyed(ServletContextEvent arg0) {

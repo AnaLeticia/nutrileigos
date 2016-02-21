@@ -3,7 +3,7 @@ package br.com.ufg.si.nutrileigos.model;
 import java.util.Date;
 
 /**
- * Document-me!
+ * Representa o comentário em um determinado post
  *
  * @author Ana Leticia
  */

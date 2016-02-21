@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Implementação de UsuarioDao usando JDBC.
+ * Implementacao de UsuarioDao usando JDBC.
  *
- * @author Ana Letícia
+ * @author Ana Leticia
  */
 public class UsuarioDaoJdbcImpl implements UsuarioDao {
 
@@ -24,7 +24,7 @@ public class UsuarioDaoJdbcImpl implements UsuarioDao {
 
     private static final String SQL_INSERT = "INSERT INTO usuario (nome, login, senha, email) VALUES (?, ?, ?, ?)";
     private static final String SQL_FIND_ALL = "SELECT * FROM usuario ";
-    private static final String SQL_FIND_BY_NAME = SQL_FIND_ALL + "WHERE nome = ? ";
+    private static final String SQL_FIND_BY_NAME = "SELECT * FROM usuario WHERE nome = ? ";
 
     private Connection conn;
     private PreparedStatement psInsert;
@@ -108,7 +108,7 @@ public class UsuarioDaoJdbcImpl implements UsuarioDao {
      * Constroi um Usuario com base no resultSet.
      *
      * @param rs o resultSet
-     * @return uma instância de Usuario
+     * @return uma instancia de Usuario
      * @throws SQLException
      */
     private Usuario usuarioFromResultSet(ResultSet rs) throws SQLException {
@@ -125,4 +125,5 @@ public class UsuarioDaoJdbcImpl implements UsuarioDao {
 
         return user;
     }
+
 }

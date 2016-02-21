@@ -10,10 +10,10 @@ import br.com.ufg.si.nutrileigos.model.Usuario;
 public final class UsuarioFactory {
 
     /**
-     * Clona um usuário.
+     * Clona um usuario.
      *
-     * @param usuarioOriginal o usuário original que será clonado
-     * @return o usuário clone.
+     * @param usuarioOriginal o usuario original que sera clonado
+     * @return o usuario clone.
      */
     public static Usuario clone(Usuario usuarioOriginal) {
         if (usuarioOriginal != null) {

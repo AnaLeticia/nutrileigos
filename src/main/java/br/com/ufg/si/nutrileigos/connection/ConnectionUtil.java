@@ -7,16 +7,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Utilitários de conexões SQL.
+ * Utilitarios de conexoes SQL.
  *
  * @author Ana Leticia
  */
 public final class ConnectionUtil {
-
-    private static final Logger LOG = Logger.getLogger(ConnectionUtil.class);
+	
+	private static final Logger LOG = Logger.getLogger(ConnectionUtil.class);
     private static final String USER = "postgres";
     private static final String PASSWORD = "oobj.postgres";
-    private static final String URL = "jdbc:postgresql://localhost:5432/nutrileigos";
+    private static final String URL = "jdbc:h2:mem:nutrileigos";
 
     private static Connection conn;
 
@@ -30,11 +30,9 @@ public final class ConnectionUtil {
 
     private static void initConnection() {
         try {
-            LOG.info("Carregando classe do driver do Postgres...");
-            Class.forName("org.postgresql.Driver");
-            LOG.info("Classe do driver do Postgres carregada com sucesso...");
+            carregarClasseDriverH2();
 
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            conn = DriverManager.getConnection(URL);
         } catch (ClassNotFoundException e1) {
             LOG.error("Falha ao carregar a clase do driver do Postgres:", e1);
 
@@ -43,6 +41,18 @@ public final class ConnectionUtil {
         }
     }
 
+	private static void carregarClasseDriverPostgres() throws ClassNotFoundException {
+		LOG.info("Carregando classe do driver do Postgres...");
+		Class.forName("org.postgresql.Driver");
+		LOG.info("Classe do driver do Postgres carregada com sucesso...");
+	}
+	
+	private static void carregarClasseDriverH2() throws ClassNotFoundException {
+		LOG.info("Carregando classe do driver do H2...");
+		Class.forName("org.h2.Driver");
+		LOG.info("Classe do driver do H2 carregada com sucesso...");
+	}
+	
     /**
      *
      * @return uma Connection pronta para uso.

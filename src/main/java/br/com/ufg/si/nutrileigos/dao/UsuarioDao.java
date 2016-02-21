@@ -6,14 +6,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Abstração de operações de DAO (Data Access Object) para Usuário.
+ * Abstracao de operacoes de DAO (Data Access Object) para Usuario.
+ * 
  *
  * @author Ana Leticia
  */
 public interface UsuarioDao {
 
     /**
-     *
+     * Insere um usuario no banco de dados.
      * @param usuario
      * @return
      * @throws SQLException
@@ -21,7 +22,8 @@ public interface UsuarioDao {
     Usuario persist(Usuario usuario) throws SQLException;
 
     /**
-     *
+     * Busca um usuario no banco de dados de acordo com o seu nome.
+     * 
      * @param name
      * @return
      * @throws SQLException
@@ -29,13 +31,11 @@ public interface UsuarioDao {
     Usuario findByName(String name) throws SQLException;
 
     /**
-     *
-     * @return
-     * @throws SQLException
+     * busca todos os usuarios do banco de dados.
+     * 
+     * @return Uma lista de usu�rios
+     * @throws SQLException 
      */
     List<Usuario> findAll() throws SQLException;
-
-
-
 
 }

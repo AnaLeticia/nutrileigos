@@ -72,17 +72,16 @@ public class PostDaoJdbcImpl implements PostDao {
     @Override
     public Post findByTitle(String title) throws SQLException {
         if (title != null) {
-            Post postByTitle = new Post();
+        	psFindByTitle.setString(1, title);
 
             ResultSet rs = psFindByTitle.executeQuery();
 
             if (rs.next()) {
-                Post post = postFromResultSet(rs);
+                return postFromResultSet(rs);
             }
 
             psFindByAuthor.close();
 
-            return postByTitle;
         }
         return null;
     }
@@ -92,8 +91,10 @@ public class PostDaoJdbcImpl implements PostDao {
         if (author != null) {
             List<Post> allPostsFromAuthor = new ArrayList<>();
 
+            psFindByAuthor.setLong(1, author.getId());
+            
             ResultSet rs = psFindByAuthor.executeQuery();
-
+            
             while (rs.next()) {
                 Post post = postFromResultSet(rs);
                 allPostsFromAuthor.add(post);
