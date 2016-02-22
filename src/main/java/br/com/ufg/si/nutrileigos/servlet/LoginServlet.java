@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.ufg.si.nutrileigos.model.Usuario;
 import br.com.ufg.si.nutrileigos.service.UsuarioService;
 
-@WebServlet(urlPatterns = "/login.html")
+//@WebServlet(urlPatterns = "login")
 public class LoginServlet extends HttpServlet {
 	
 	private UsuarioService usuarioService;
@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		super.doPost(req, resp);
 		
+		
 		String login = req.getParameter("username");
 		String password = req.getParameter("password");
 		
@@ -35,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 		
 
 		usuarioService.persistir(usuario);
-		
+		 resp.sendRedirect("www.google.com");
 		// redireciona para pagina de erro ou para pagina register.html
 
 	}
