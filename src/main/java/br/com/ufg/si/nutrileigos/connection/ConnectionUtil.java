@@ -14,9 +14,9 @@ import java.sql.SQLException;
 public final class ConnectionUtil {
 	
 	private static final Logger LOG = Logger.getLogger(ConnectionUtil.class);
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "oobj.postgres";
-    private static final String URL = "jdbc:h2:mem:nutrileigos";
+    private static final String USER = "sa";
+    private static final String PASSWORD = "";
+    private static final String URL = "jdbc:h2:tcp://localhost/~/nutrileigos";
 
     private static Connection conn;
 
@@ -32,7 +32,7 @@ public final class ConnectionUtil {
         try {
             carregarClasseDriverH2();
 
-            conn = DriverManager.getConnection(URL);
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (ClassNotFoundException e1) {
             LOG.error("Falha ao carregar a clase do driver do Postgres:", e1);
 
@@ -49,7 +49,8 @@ public final class ConnectionUtil {
 	
 	private static void carregarClasseDriverH2() throws ClassNotFoundException {
 		LOG.info("Carregando classe do driver do H2...");
-		Class.forName("org.h2.Driver");
+		Class<?> forName = Class.forName("org.h2.Driver");
+		
 		LOG.info("Classe do driver do H2 carregada com sucesso...");
 	}
 	

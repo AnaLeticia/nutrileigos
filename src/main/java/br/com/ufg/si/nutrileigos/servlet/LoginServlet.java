@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.ufg.si.nutrileigos.model.Usuario;
 import br.com.ufg.si.nutrileigos.service.UsuarioService;
 
-//@WebServlet(urlPatterns = "login")
+@WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
 	
-	private UsuarioService usuarioService;
+	private UsuarioService usuarioService = new UsuarioService();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,22 +24,45 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doPost(req, resp);
+		String formType = req.getParameter("form-type");
 		
-		
-		String login = req.getParameter("username");
+		if (formType.equals("login-form")) {
+			// faz login
+			login(req, resp);
+		} else if (formType.equals("register-form")) {
+			// faz cadastro
+			registrar(req, resp);
+		}
+	}
+	
+	private void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String login = req.getParameter("login");
 		String password = req.getParameter("password");
 		
+		// consultar usuario no banco e checar se a senha bate...
+		
+		resp.sendRedirect("/nutrileigos/index.html");
+	}
+
+	private void registrar(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String nome = req.getParameter("username");
+		String login = req.getParameter("login");
+		String password = req.getParameter("password");
+		String email = req.getParameter("email");
+		
 		Usuario usuario = new Usuario();
+		usuario.setNome(nome);
 		usuario.setLogin(login);
 		usuario.setSenha(password);
+		usuario.setEmail(email);
 		
 
 		usuarioService.persistir(usuario);
-		 resp.sendRedirect("www.google.com");
-		// redireciona para pagina de erro ou para pagina register.html
-
+		 resp.sendRedirect("/nutrileigos/register.html");
+		
 	}
+
+	
 	
 
 }
