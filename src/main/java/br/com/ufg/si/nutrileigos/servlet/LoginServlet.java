@@ -1,8 +1,8 @@
 package br.com.ufg.si.nutrileigos.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 	
-	private void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	private void login(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		String login = req.getParameter("login");
 		String password = req.getParameter("password");
 
@@ -48,7 +48,9 @@ public class LoginServlet extends HttpServlet {
 			if (usuarioConsultadoBanco.getSenha().equals(password)) {
 				// redireciona para forum.html
 				req.setAttribute("nomeUsuario", usuarioConsultadoBanco.getNome());
-				resp.sendRedirect("/nutrileigos/forum.jsp");
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/forum.jsp");
+				dispatcher.forward(req, resp);
 			} else {
 				// senha incorreta
 				resp.getWriter().append("Senha incorreta");
