@@ -38,10 +38,27 @@ public class LoginServlet extends HttpServlet {
 	private void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String login = req.getParameter("login");
 		String password = req.getParameter("password");
+
 		
-		// consultar usuario no banco e checar se a senha bate...
+		// consulte se existe usuario no banco cujo login é igual ao login da requisicao
+		Usuario usuarioConsultadoBanco = usuarioService.consultarUsuarioPorLogin(login);
 		
-		resp.sendRedirect("/nutrileigos/index.html");
+		// se existe usuario, conferir a senha do usuario
+		if (usuarioConsultadoBanco != null) {
+			if (usuarioConsultadoBanco.getSenha().equals(password)) {
+				// redireciona para forum.html
+				req.setAttribute("nomeUsuario", usuarioConsultadoBanco.getNome());
+				resp.sendRedirect("/nutrileigos/forum.jsp");
+			} else {
+				// senha incorreta
+				resp.getWriter().append("Senha incorreta");
+			}
+		} else {
+			// se nao existe, devolve (responde) falando que nao exista.
+			resp.getWriter().append("Usuario inexistente");
+		}
+		
+		
 	}
 
 	private void registrar(HttpServletRequest req, HttpServletResponse resp) throws IOException {

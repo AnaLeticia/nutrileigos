@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +12,9 @@
 
 	<div class="container">
 		<br>
-		<div class="row wrapper text-right">Bem vindo, Ana Letícia</div>
-
+		
+		<div class="row wrapper text-right"> Bem vindo, <%= request.getAttribute("nomeUsuario") %></div>
+		
 
 		<div class="row wrapper text-center">
 

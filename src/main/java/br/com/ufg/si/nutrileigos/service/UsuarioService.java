@@ -45,5 +45,19 @@ public class UsuarioService {
 			return null;
 		}
     }
+
+    /**
+     * Consulta se existe ao menos um usuario com o login informado
+     * 
+     * @param login o login que será consultado
+     */
+	public Usuario consultarUsuarioPorLogin(String login) {
+		try {
+			return usuarioDao.findByLogin(login);
+		} catch (SQLException e) {
+			LOG.error("Falha ao consultar o usuario: ", e);
+			return null;
+		}
+	}
     
 }

@@ -25,17 +25,20 @@ public class UsuarioDaoJdbcImpl implements UsuarioDao {
     private static final String SQL_INSERT = "INSERT INTO usuario (nome, login, senha, email) VALUES (?, ?, ?, ?)";
     private static final String SQL_FIND_ALL = "SELECT * FROM usuario ";
     private static final String SQL_FIND_BY_NAME = "SELECT * FROM usuario WHERE nome = ? ";
+    private static final String SQL_FIND_BY_LOGIN = "SELECT * FROM usuario WHERE login = ? ";
 
     private Connection conn;
     private PreparedStatement psInsert;
     private PreparedStatement psFindAll;
     private PreparedStatement psFindByName;
+    private PreparedStatement psFindByLogin;
 
     public UsuarioDaoJdbcImpl() throws SQLException {
         conn = ConnectionUtil.getConnection();
         psInsert = conn.prepareStatement(SQL_INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
         psFindAll = conn.prepareStatement(SQL_FIND_ALL);
         psFindByName = conn.prepareStatement(SQL_FIND_BY_NAME);
+        psFindByLogin = conn.prepareStatement(SQL_FIND_BY_LOGIN);
     }
 
     @Override
@@ -72,7 +75,7 @@ public class UsuarioDaoJdbcImpl implements UsuarioDao {
             psFindByName.setString(1, name);
 
             ResultSet rs = psFindByName.executeQuery();
-            while (rs.next()) {
+            if (rs.next()) {
                 user = usuarioFromResultSet(rs);
             }
 
@@ -83,6 +86,24 @@ public class UsuarioDaoJdbcImpl implements UsuarioDao {
             throw e;
         }
     }
+    
+    @Override
+	public Usuario findByLogin(String login) throws SQLException {
+    	Usuario usuario = null;
+    	try {
+    		psFindByLogin.setString(1, login);
+    		
+    		ResultSet rs = psFindByLogin.executeQuery();
+    		if (rs.next()) {
+    			usuario = usuarioFromResultSet(rs);
+    		}
+    	} catch (SQLException e) {
+    		LOG.error("Falha ao listar o usuario de login " + login,  e);
+    		throw e;
+    	}
+
+		return usuario;
+	}
 
     @Override
     public List<Usuario> findAll() throws SQLException {
@@ -125,5 +146,7 @@ public class UsuarioDaoJdbcImpl implements UsuarioDao {
 
         return user;
     }
+
+	
 
 }

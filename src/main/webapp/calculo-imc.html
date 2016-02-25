@@ -4,137 +4,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calculo do IMC</title>
 
-<link rel="stylesheet"
-	href="bootstrap-3.3.5/css/bootstrap.min.css" />
+<link rel="stylesheet" href="bootstrap-3.3.5/css/bootstrap.min.css" />
 
 </head>
 <body>
-<!-- Componente do icone do nutrileigos -->
-	<div class="col-md-12">
-		<div class="col-md-1">
-			<img src="images/iconnutri.jpg" class="img-responsive"
-				alt="Responsive image">
-			</div>		
-		<!-- Botão voltar -->
-					<div class="row wrapper text-right">
-					<input type="button" class="btn btn-success" value="Voltar" onClick="history.go(-1)">
-						</div>
-				
+	<!-- Componente do icone do nutrileigos -->
 	<div class="container center-block">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="panel panel-success"">
-					<div class="panel-heading text-center">
-						<h4>Tabela de refer&ecirc;ncia</h4>
-					</div>
-
-					<div class="panel-success">
-						<table class="table table-striped">
-							<thead>
-								<tr>
-									<td><b>Resultado</b></td>
-									<td><b>Situa&ccedil;&atilde;o</b></td>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Abaixo de 17</td>
-									<td>Muito abaixo do <em>peso</em></td>
-								</tr>
-								<tr>
-									<td>Entre 17 e 18,49</td>
-									<td>Abaixo do <em>peso</em></td>
-								</tr>
-								<tr>
-									<td>Entre 18,5 e 24,99</td>
-									<td><em>Peso</em> normal</td>
-								</tr>
-								<tr>
-									<td>Entre 25 e 29,99</td>
-									<td>Acima do <em>peso</em></td>
-								</tr>
-								<tr>
-									<td>Entre 30 e 34,99</td>
-									<td><em>Obesidade</em> I</td>
-								</tr>
-								<tr>
-									<td>Entre 35 e 39,99</td>
-									<td><em>Obesidade</em> II (severa)</td>
-								</tr>
-								<tr>
-									<td>Acima de 40</td>
-									<td><em>Obesidade</em> III (m&oacute;rbida)</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+		<div class="col-md-12">
+			<div class="col-md-1">
+				<img src="images/iconnutri.jpg" class="img-responsive"
+					alt="Responsive image">
+			</div>
+			<!-- Botão voltar -->
+			<div class="row wrapper text-right">
+				<input type="button" class="btn btn-success" value="Voltar"
+					onClick="history.go(-1)">
 			</div>
 
-			<div class="col-md-8">
-				<div class="panel panel-success">
-					<div class="panel-heading text-center">
-						<h4>IMC: &Iacute;ndice de Massa C&oacute;rporea</h4>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-success"">
+						<div class="panel-heading text-center">
+							<h4>Tabela de refer&ecirc;ncia</h4>
+						</div>
+
+						<div class="panel-success">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<td><b>Resultado</b></td>
+										<td><b>Situa&ccedil;&atilde;o</b></td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Abaixo de 17</td>
+										<td>Muito abaixo do <em>peso</em></td>
+									</tr>
+									<tr>
+										<td>Entre 17 e 18,49</td>
+										<td>Abaixo do <em>peso</em></td>
+									</tr>
+									<tr>
+										<td>Entre 18,5 e 24,99</td>
+										<td><em>Peso</em> normal</td>
+									</tr>
+									<tr>
+										<td>Entre 25 e 29,99</td>
+										<td>Acima do <em>peso</em></td>
+									</tr>
+									<tr>
+										<td>Entre 30 e 34,99</td>
+										<td><em>Obesidade</em> I</td>
+									</tr>
+									<tr>
+										<td>Entre 35 e 39,99</td>
+										<td><em>Obesidade</em> II (severa)</td>
+									</tr>
+									<tr>
+										<td>Acima de 40</td>
+										<td><em>Obesidade</em> III (m&oacute;rbida)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
-					<div class="panel-body">
-						<form name="imcForm" action="imc.jsp" method="POST">
-<!-- 						<form name="imcForm" action="calculo-imc2.html" method="POST" > -->
-							<div class="form-group">
-								<input type="text" class="form-control"
-									placeholder="Digite o seu peso (em kg)" name="peso" required>
-							</div>
+				</div>
 
-							<div class="form-group">
-								<input type="text" class="form-control"
-									placeholder="Digite a sua altura (em m)" name="altura" required>
-							</div>
+				<div class="col-md-8">
+					<div class="panel panel-success">
+						<div class="panel-heading text-center">
+							<h4>IMC: &Iacute;ndice de Massa C&oacute;rporea</h4>
+						</div>
+						<div class="panel-body">
+							<form name="imcForm" action="imc.jsp" method="POST">
+								<!-- 						<form name="imcForm" action="calculo-imc2.html" method="POST" > -->
+								<div class="form-group">
+									<input type="text" class="form-control"
+										placeholder="Digite o seu peso (em kg)" name="peso" required>
+								</div>
 
-							<br>
+								<div class="form-group">
+									<input type="text" class="form-control"
+										placeholder="Digite a sua altura (em m)" name="altura"
+										required>
+								</div>
 
-							<div id='toolbar'>
-								<div class='wrapper text-center'>
-									<div class="btn-group pagination-centered" role="group">
-										<button type="submit" class="btn btn-success btn-lg" value="">
-											<span class="glyphicon glyphicon-dashboard" aria-hidden="true"/>
-											Calcular
-										</button>
+								<br>
 
-										<button type="submit" class="btn btn-warning btn-lg" value="">
-											<span class="glyphicon glyphicon-erase" aria-hidden="true"/>
-											Limpar
-										</button>
+								<div id='toolbar'>
+									<div class='wrapper text-center'>
+										<div class="btn-group pagination-centered" role="group">
+											<button type="submit" class="btn btn-success btn-lg" value="">
+												<span class="glyphicon glyphicon-dashboard"
+													aria-hidden="true" /> Calcular
+											</button>
+
+											<button type="submit" class="btn btn-warning btn-lg" value="">
+												<span class="glyphicon glyphicon-erase" aria-hidden="true" />
+												Limpar
+											</button>
+										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="row">
-								<div class="wrapper text-center">
+								<div class="row">
+									<div class="wrapper text-center">
 
-									<br></br>
+										<br></br>
 
+									</div>
 								</div>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<!-- Rodape da pagina -->
-	<footer>
-		<div class="container">
-			<div class="row wrapper text-center">
-				<div class="col-md-12 ">
 
-					<div class="well well-sm">
-						Nutrileigos - 2015 <br> Desenvolvido por: <a
-							href="https://github.com/AnaLeticia" target="_blank">Ana
-							Letícia</a>
+		<!-- Rodape da pagina -->
+		<footer>
+			<div class="container">
+				<div class="row wrapper text-center">
+					<div class="col-md-12 ">
+
+						<div class="well well-sm">
+							Nutrileigos - 2015 <br> Desenvolvido por: <a
+								href="https://github.com/AnaLeticia" target="_blank">Ana
+								Letícia</a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 </body>
 </html>

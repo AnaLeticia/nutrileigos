@@ -24,11 +24,20 @@ public interface UsuarioDao {
     /**
      * Busca um usuario no banco de dados de acordo com o seu nome.
      * 
-     * @param name
-     * @return
+     * @param name o nome do usuario
+     * @return uma instancia de Usuario caso seja encontrado, ou null caso não seja encontrado
      * @throws SQLException
      */
     Usuario findByName(String name) throws SQLException;
+    
+    /**
+     * Busca um usuario no banco de dados de acordo com o seu login.
+     * 
+     * @param login o login do usuario
+     * @return uma instancia de Usuario caso seja encontrado, ou null caso não seja encontrado
+     * @throws SQLException
+     */
+    Usuario findByLogin(String login) throws SQLException;
 
     /**
      * busca todos os usuarios do banco de dados.
