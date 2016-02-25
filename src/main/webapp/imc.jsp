@@ -14,16 +14,26 @@
 
 </head>
 <body>
-	<br>
+<!-- Componente do icone do nutrileigos -->
 	<div class="container center-block">
+		<div class="col-md-12">
+			<div class="col-md-1">
+				<img src="images/iconnutri.jpg" class="img-responsive"
+					alt="Responsive image">
+			</div>
+			<!-- Botão voltar -->
+			<div class="row wrapper text-right">
+				<input type="button" class="btn btn-success" value="Voltar"
+					onClick="history.go(-1)">
+			</div>
 		<div class="row">
 			<div class="col-md-4">
-				<div class="panel panel-primary">
+				<div class="panel panel-success">
 					<div class="panel-heading text-center">
 						<h4>Tabela de refer&ecirc;ncia</h4>
 					</div>
 
-					<div class="panel-body">
+					<div class="panel-success">
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -67,7 +77,7 @@
 			</div>
 
 			<div class="col-md-8">
-				<div class="panel panel-primary">
+				<div class="panel panel-success">
 					<div class="panel-heading text-center">
 						<h4>IMC: &Iacute;ndice de Massa C&oacute;rporea</h4>
 					</div>
@@ -159,5 +169,19 @@
 			</div>
 		</div>
 	</div>
+	<!-- Rodape da pagina -->
+		<footer>
+			<div class="container">
+				<div class="row wrapper text-center">
+					<div class="col-md-12 ">
+
+						<div class="well well-sm">
+							Nutrileigos - 2015 <br> Desenvolvido por: <a
+								href="https://github.com/AnaLeticia" target="_blank">Ana
+								Letícia</a>
+						</div>
+					</div>
+				</div>
+			</div>
 </body>
 </html>
