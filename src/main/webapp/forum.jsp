@@ -10,6 +10,14 @@
 </head>
 <body>
 
+<!-- Componente do icone do nutrileigos -->
+	<div class="container">
+		<div class="col-md-12">
+			<div class="col-md-1">
+				<img src="images/iconnutri.jpg" class="img-responsive"
+					alt="Responsive image" onClick="location.href = 'index.html'">
+			</div>
+			
 	<div class="container">
 		<br>
 		
@@ -22,7 +30,9 @@
 
 			<div class="col-md-10">
 				<br>
-				<h1>Nutrileigos - Fórum</h1>
+				<p class="text-center">
+					<h1 style="color:green;">Fórum - Nutrileigos</h1>
+					</p>
 				<br>
 
 				<div class="table-responsive">
@@ -62,8 +72,8 @@
 			<div class="col-md-1"></div>
 		</div>
 
-
-		<div class="row wrapper text-center">
+				
+		<div class="row wrapper text-right">
 			<div class="col-md-10"></div>
 			<div class="col-md-2">
 				<input onclick="location.href = 'novo-forum.html';"
@@ -74,13 +84,6 @@
 	</div>
 
 
-<!-- Botão voltar -->
-	<div class="row wrapper text-center">
-					<div class="col-md-10"></div>
-						<div class="col-md-2">
-						<input type="button" value="Voltar" onClick="history.go(-2)">
-					</div>
-				</div>
 
 
 	<!-- Rodape da pagina -->
